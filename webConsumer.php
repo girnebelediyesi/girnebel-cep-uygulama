@@ -16,46 +16,30 @@ function obj2array($obj) {
     }
     return $out;
 }
-if ($_REQUEST['suBorcAboneTB']==0)
-{
-    $arr[]=array('genelBorc'=>"0",'su'=>"0",'cop'=>"0",
-        'kanal'=>"0",'ayd'=>"0",'saglik'=>"0");
-}
-else
-{
     try {
         $client = new SoapClient("http://212.175.49.18/BorcSorgulama/Service.asmx?WSDL");
     } catch (Exception $e) {
         echo $e->getMessage();
     }
-    $arguments->mnoNumber = $_REQUEST['suBorcAboneTB'];//ex: "219577";
-    $result = $client->BLD_SuBorc_Get( $arguments );
-    $response = obj2array($result);
-    //$response = $response["BLD_SuBorc_GetResult"]["any"];
 
 
-    //$obj = simplexml_load_string($response);
 
-    /*
-        $resultcik = $obj->xpath('//Table');
-        if (count($resultcik)>0)
-        {
-            foreach ($resultcik as $value)
-            {
-                $arr[]=array('sonOdeme'=>$value->sonOdeme,'su'=>$value->su,'cop'=>$value->cop,
-    'kanal'=>$value->kanal,'ayd'=>$value->ayd,'saglik'=>$value->saglik,'genelBorc'=>$value->genelBorc);
+    if($_GET['suBorcAboneTB'])
+    {
+        $arguments->mnoNumber = $_GET['suBorcAboneTB'];
+        $result = $client->BLD_SuBorc_Get( $arguments );
+        $response = obj2array($result);
+        $data = json_encode($response['BLD_SuBorc_GetResult']);
     }
-        }
-        else
-        {
-            $arr[]=array('adi'=>'0');
-        }
-    }*/
-    // json string
+    if($_GET['suKimlikTB'])
+    {
+        $arguments->kimlikNo = $_GET['suKimlikTB'];
+        $result = $client->BLD_SuBorcKimlik_Get( $arguments );
+        $response = obj2array($result);
+        $data = json_encode($response['BLD_SuBorcKimlik_GetResult']);
+        //var_dump($result);
+    }
 
-}
-$data = json_encode($response['BLD_SuBorc_GetResult']);
-//echo data as JSONP
 
 if(array_key_exists('callback', $_GET)){
     header('Content-Type: text/javascript; charset=utf8');

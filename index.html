@@ -18,8 +18,8 @@
 	
 	
     <script type="text/javascript">
-        //$(document).ready(function(){
-            $(document).on("pageinit","#suBorcu", function() {
+        $(document).ready(function(){
+        //    $(document).on("pageinit","#suBorcu", function() {
             var query;
             $('#suAboneSorgu').click(function(event){
 
@@ -47,6 +47,33 @@
 
                         });
             });
+
+                $('#suKimlikSorgu').click(function(event){
+
+
+                    $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+
+                    query=$("#suKimlikTB").val();
+
+                    $.getJSON('http://91.151.82.135:88/webConsumer.php?suKimlikTB='+query+"&callback=?")
+                            .done(function( data ) {
+
+                                $.mobile.loading('hide');
+                                $("#suKimlikSonuc").empty();
+
+                                $.each(data,function(i,table){
+                                    $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su/2+'</td>' +
+                                            '<tr><td>Temizlik:</td><td>'+data.cop/2+'</td></tr>' +
+                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd/2+'</td></tr>' +
+                                            '<tr><td>Sağlık:</td><td>'+data.saglik/2+'</td></tr>' +
+                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal/2+'</td></tr>' +
+                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc/2+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+data.total/2+'</td></tr></table>');
+                                });
+
+
+                            });
+                });
         });
     </script>
 </head>
@@ -114,11 +141,11 @@
         <span id="sontar"></span>
         <div class="div-widget" id="suAboneSonuc"></div>
         <div data-role="fieldcontain">
-            <label for="text4">Kimlik No ile sorgulama</label>
-            <input type="text" id="text4">
+            <label for="suKimlikTB">Kimlik No ile sorgulama</label>
+            <input type="text" id="suKimlikTB">
         </div>
-        <a data-role="button">Sorgula</a>
-        <div class="div-widget" id="suDiv">
+        <a data-role="button" id="suKimlikSorgu">Sorgula</a>
+        <div class="div-widget" id="suKimlikSonuc">
             <select data-native-menu="false" id="aboneNos"></select>
             <a data-role="button" data-inline="true">Sorgula</a>
             <div class="div-widget" id="suBorclar"></div>

@@ -29,7 +29,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="43" selection-start="9001" selection-end="9001" vertical-scroll-proportion="0.4622144" vertical-offset="3052" max-vertical-offset="4692">
+            <state line="215" column="83" selection-start="9974" selection-end="9974" vertical-scroll-proportion="0.7205624" vertical-offset="3245" max-vertical-offset="4692">
               <folding />
             </state>
           </provider>
@@ -239,7 +239,11 @@
       <created>1392122943390</created>
       <updated>1392122943390</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Mobile app 4 fully func on web">
+      <created>1392123480051</created>
+      <updated>1392123480051</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -388,7 +392,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="43" selection-start="9001" selection-end="9001" vertical-scroll-proportion="0.4622144" vertical-offset="3052" max-vertical-offset="4692">
+        <state line="215" column="83" selection-start="9974" selection-end="9974" vertical-scroll-proportion="0.7205624" vertical-offset="3245" max-vertical-offset="4692">
           <folding />
         </state>
       </provider>

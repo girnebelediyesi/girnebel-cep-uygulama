@@ -9,7 +9,7 @@
     <title>Girne Cep App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="themes/umut.min.css" />
+	<link rel="stylesheet" href="themes/girneapptheme.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
 	<script src="lib/jquery-1.11.0.min.js"></script>
 	<script src="lib/jquery.mobile-1.4.0.min.js"></script>
@@ -33,6 +33,10 @@
 
                             $.mobile.loading('hide');
                             $("#suAboneSonuc").empty();
+                            $("#suKimlikSonuc").empty();
+                            $("#aboneNoPaneli").empty();
+                            $("#suBorcKimlikTB").text("");
+
 
                             $.each(data,function(i,table){
                                 $("#suAboneSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
@@ -60,20 +64,128 @@
 
                                 $.mobile.loading('hide');
                                 $("#suKimlikSonuc").empty();
+                                $("#aboneNoPaneli").empty();
+                                $("#aboneNoPaneli").append( '<p>Kayıtlı abone numaraları:</p><select id="aboneNos"></select><br/><a data-role="button" id="aboneKimlikSorgula" data-theme="a">Sorgula</a>').trigger("create");
+                                $("#aboneNos").empty();
+                                $("#suBorcAboneTB").text("");
+
+                                var $option = $("#aboneNos");
+
+                                //$option.append($('<option></option>').attr("value", -1).text(""));
+                                var s=0;
+                                var value=0;
 
                                 $.each(data,function(i,table){
-                                    $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su/2+'</td>' +
-                                            '<tr><td>Temizlik:</td><td>'+data.cop/2+'</td></tr>' +
-                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd/2+'</td></tr>' +
-                                            '<tr><td>Sağlık:</td><td>'+data.saglik/2+'</td></tr>' +
-                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal/2+'</td></tr>' +
-                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc/2+'</td></tr>' +
-                                            '<tr><td>Toplam:</td><td>'+data.total/2+'</td></tr></table>');
+
+                                    $option.append($('<option></option>').attr("value", value).text(data.kisiselMno.MNOnumbers[s].mnoNumber));
+                                    s++;
+                                    value++;
+
+                                    $("#aboneNos").val($("#aboneNos option:first").val());
+
+                                    $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
+                                            '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
+                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
+                                            '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
+                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
+                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
+
+                                    $('#aboneNos').selectmenu('refresh', true);
+                                });
+
+                            });
+
+
+                });
+
+            $(document).on('click','#aboneKimlikSorgula', function()
+            {
+
+                $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+
+                query=$("#aboneNos :selected").text();
+
+                $.getJSON('http://91.151.82.135:88/webConsumer.php?suBorcAboneTB='+query+"&callback=?")
+                        .done(function( data ) {
+
+                            $.mobile.loading('hide');
+                            $("#suAboneSonuc").empty();
+                            $("#suKimlikSonuc").empty();
+                            $("#suBorcAboneTB").text("");
+                            $("#suBorcKimlikTB").text("");
+
+
+                            $.each(data,function(i,table){
+                                $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
+                                        '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
+                                        '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
+                                        '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
+                                        '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
+                                        '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
+                                        '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
+                            });
+
+
+                        });
+            });
+        });
+
+               $(document).on("pageinit","#emlakBorcu", function() {
+
+                $('#emlakTgeSorgu').click(function(event){
+
+                    $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+
+                    query=$("#emlakTgeTB").val();
+
+                    $.getJSON('http://91.151.82.135:88/webConsumer.php?emlakTgeTB='+query+'&callback=?')
+                            .done(function( data ) {
+                                //alert("clicked");
+
+                                $.mobile.loading('hide');
+                                $("#emlakTgeDiv").empty();
+                                $("#emlaKimlikDiv").empty();
+                                $("#emlakKimlikTB").text("");
+
+
+                                $.each(data,function(i,table){
+                                    $("#emlakTgeDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
+                                            '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
+                                            '<tr><td>Cari Dönem:</td><td>'+data.cariDonem+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
                                 });
 
 
                             });
                 });
+
+            $('#emlakKimlikSorgu').click(function(event){
+
+                $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+
+                query=$("#emlakKimlikTB").val();
+
+                $.getJSON('http://91.151.82.135:88/webConsumer.php?emlakKimlikTB='+query+'&callback=?')
+                        .done(function( data ) {
+                            //alert("clicked");
+
+                            $.mobile.loading('hide');
+                            $("#emlaKimlikDiv").empty();
+                            $("#emlakTgeDiv").empty();
+                            $("#emlakTgeTB").text("");
+
+                            $.each(data,function(i,table){
+                                $("#emlaKimlikDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
+                                        '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
+                                        '<tr><td>Cari Dönem:</td><td>'+data.cariDonem+'</td></tr>' +
+                                        '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
+                            });
+
+
+                        });
+            });
+
         });
     </script>
 </head>
@@ -85,8 +197,8 @@
     </div>
     <div data-role="content">
         <img id="logo" src="images/Logo_last.png" width="100" height="100" style="display: block; margin: 0 auto">
-        <a data-role="button" data-transition="flip" href="#borcSorgulama">Borç Sorgulama</a>
-        <a data-role="button" href="http://213.142.146.66/girne/" data-transition="flip">Online İmar Rehberi</a>
+        <a data-role="button" data-transition="flip" href="#borcSorgulama" data-theme="a">Borç Sorgulama</a>
+        <a data-role="button" href="http://213.142.146.66/girne/" data-transition="flip" data-theme="a">Online İmar Rehberi</a>
     </div>
     <div data-role="footer">
         <h1>Cep Uygulaması</h1>
@@ -97,33 +209,33 @@
         <h1>Borç Sorgulama</h1>
     </div>
     <div data-role="content">
-        <a data-role="button" data-transition="flip">Emlak Borcu Sorgula</a>
-        <a data-role="button" data-transition="flip" href="#suBorcu">Su Borcu Sorgula</a>
+        <a data-role="button" data-transition="flip" href="#emlakBorcu" data-theme="a">Emlak Borcu Sorgula</a>
+        <a data-role="button" data-transition="flip" href="#suBorcu" data-theme="a">Su Borcu Sorgula</a>
     </div>
     <div data-role="footer">
         <a data-role="button" data-transition="turn" data-theme="b">Geri</a>
     </div>
 </div>
-<div data-role="page" id="emlakBorcu" data-theme="b">
+<div data-role="page" id="emlakBorcu" data-theme="a">
     <div data-role="header">
         <h1>Emlak Borcu</h1>
     </div>
     <div data-role="content">
         <div data-role="fieldcontain">
-            <label for="text1">TGE No ile sorgulama:</label>
-            <input type="text" id="text1">
+            <label for="emlakTgeTB">TGE No ile sorgulama:</label>
+            <input type="text" id="emlakTgeTB" >
         </div>
-        <a data-role="button">Sorgula</a>
+        <a data-role="button" id="emlakTgeSorgu" data-theme="a">Sorgula</a>
         <div class="div-widget" id="emlakTgeDiv"></div>
         <div data-role="fieldcontain">
-            <label for="text2">Kimlik No ile sorgulama:</label>
-            <input type="text" id="text2">
+            <label for="emlakKimlikTB">Kimlik No ile sorgulama:</label>
+            <input type="text" id="emlakKimlikTB">
         </div>
-        <a data-role="button">Sorgula</a>
+        <a data-role="button" data-theme="a" id="emlakKimlikSorgu">Sorgula</a>
         <div class="div-widget" id="emlaKimlikDiv"></div>
     </div>
     <div data-role="footer">
-        <a data-role="button" data-transition="turn" data-theme="b">Geri</a>
+        <a data-role="button" data-transition="turn" data-theme="a">Geri</a>
     </div>
 </div>
 
@@ -137,19 +249,18 @@
             <label for="suBorcAboneTB">Abone No ile sorgulama</label>
             <input type="text" id="suBorcAboneTB">
         </div>
-        <a data-role="button" id="suAboneSorgu">Sorgula</a>
+        <a data-role="button" id="suAboneSorgu" data-theme="a">Sorgula</a>
         <span id="sontar"></span>
         <div class="div-widget" id="suAboneSonuc"></div>
+
+
         <div data-role="fieldcontain">
             <label for="suKimlikTB">Kimlik No ile sorgulama</label>
             <input type="text" id="suKimlikTB">
         </div>
-        <a data-role="button" id="suKimlikSorgu">Sorgula</a>
-        <div class="div-widget" id="suKimlikSonuc">
-            <select data-native-menu="false" id="aboneNos"></select>
-            <a data-role="button" data-inline="true">Sorgula</a>
-            <div class="div-widget" id="suBorclar"></div>
-        </div>
+        <a data-role="button" id="suKimlikSorgu" data-theme="a">Sorgula</a>
+        <div class="div-widget" id="suKimlikSonuc"></div>
+        <div class="div-widget" id="aboneNoPaneli"></div>
     </div>
     <div data-role="footer">
         <a data-role="button" data-transition="turn" data-theme="b">Geri</a>

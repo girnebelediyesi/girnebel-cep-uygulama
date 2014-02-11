@@ -30,6 +30,7 @@ function obj2array($obj) {
         $result = $client->BLD_SuBorc_Get( $arguments );
         $response = obj2array($result);
         $data = json_encode($response['BLD_SuBorc_GetResult']);
+
     }
     if($_GET['suKimlikTB'])
     {
@@ -38,6 +39,28 @@ function obj2array($obj) {
         $response = obj2array($result);
         $data = json_encode($response['BLD_SuBorcKimlik_GetResult']);
         //var_dump($result);
+    }
+
+    if($_GET['emlakTgeTB'])
+    {
+
+        $arguments->tgeNumber = $_GET['emlakTgeTB'];
+        $arguments->yil = 2013;
+        $result = $client->BLD_EmlakBorc_Get( $arguments  );
+        $response = obj2array($result);
+        $data = json_encode($response['BLD_EmlakBorc_GetResult']);
+        //var_dump($result);
+    }
+
+    if($_GET['emlakKimlikTB'])
+    {
+
+    $arguments->kimlikNo = $_GET['emlakKimlikTB'];
+    $arguments->yil = 2013;
+    $result = $client->BLD_EmlakBorcKimlik_Get($arguments);
+    $response = obj2array($result);
+    $data = json_encode($response['BLD_EmlakBorcKimlik_GetResult']);
+    //var_dump($result);
     }
 
 

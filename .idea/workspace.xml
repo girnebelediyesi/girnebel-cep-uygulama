@@ -29,7 +29,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="10" selection-start="715" selection-end="715" vertical-scroll-proportion="0.36935484" vertical-offset="128" max-vertical-offset="5270">
+            <state line="21" column="61" selection-start="768" selection-end="768" vertical-scroll-proportion="-3.2080646" vertical-offset="2346" max-vertical-offset="5270">
               <folding />
             </state>
           </provider>
@@ -252,7 +252,11 @@
       <created>1392371865706</created>
       <updated>1392371865706</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Completed Version 1.1">
+      <created>1392376777742</created>
+      <updated>1392376777742</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -295,7 +299,8 @@
     <MESSAGE value="Su Kimlik ver." />
     <MESSAGE value="Mobile app 4 fully func on web" />
     <MESSAGE value="Completed version 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed version 1" />
+    <MESSAGE value="Completed Version 1.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed Version 1.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -402,7 +407,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="10" selection-start="715" selection-end="715" vertical-scroll-proportion="0.36935484" vertical-offset="128" max-vertical-offset="5270">
+        <state line="21" column="61" selection-start="768" selection-end="768" vertical-scroll-proportion="-3.2080646" vertical-offset="2346" max-vertical-offset="5270">
           <folding />
         </state>
       </provider>

@@ -24,7 +24,7 @@
             $('#suAboneSorgu').click(function(event){
 
 
-                $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+                $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
 
                 query=$("#suBorcAboneTB").val();
 
@@ -55,7 +55,7 @@
                 $('#suKimlikSorgu').click(function(event){
 
 
-                    $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+                    $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
 
                     query=$("#suKimlikTB").val();
 
@@ -71,17 +71,23 @@
 
                                 var $option = $("#aboneNos");
 
-                                //$option.append($('<option></option>').attr("value", -1).text(""));
                                 var s=0;
-                                var value=0;
+                                var increment=0;
 
-                                $.each(data,function(i,table){
+                                $.each(data,function(name,value){
+                                    if(data.kisiselMno.MNOnumbers.length > 1)
+                                    {
+                                        $.each(data.kisiselMno.MNOnumbers,function(name,value){
+                                        $option.append($('<option></option>').attr("value", increment).text(value.mnoNumber));
+                                        s++;
+                                        value++;
 
-                                    $option.append($('<option></option>').attr("value", value).text(data.kisiselMno.MNOnumbers[s].mnoNumber));
-                                    s++;
-                                    value++;
+                                      });
+                                    }
+                                    else
+                                        $option.append($('<option></option>').attr("value", increment).text(data.kisiselMno.MNOnumbers.mnoNumber));
 
-                                    $("#aboneNos").val($("#aboneNos option:first").val());
+                                    $('#aboneNos').selectmenu('refresh', true);
 
                                     $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
                                             '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
@@ -91,7 +97,8 @@
                                             '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
                                             '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
 
-                                    $('#aboneNos').selectmenu('refresh', true);
+
+                                    return false;
                                 });
 
                             });
@@ -102,7 +109,7 @@
             $(document).on('click','#aboneKimlikSorgula', function()
             {
 
-                $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+                $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
 
                 query=$("#aboneNos :selected").text();
 
@@ -131,11 +138,11 @@
             });
         });
 
-               $(document).on("pageinit","#emlakBorcu", function() {
+              $(document).on("pageinit","#emlakBorcu", function() {
 
                 $('#emlakTgeSorgu').click(function(event){
 
-                    $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+                    $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
 
                     query=$("#emlakTgeTB").val();
 
@@ -162,7 +169,7 @@
 
             $('#emlakKimlikSorgu').click(function(event){
 
-                $.mobile.loading('show', {theme:"d", text:"Lütfen Bekleyin...", textVisible: true});
+                $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
 
                 query=$("#emlakKimlikTB").val();
 

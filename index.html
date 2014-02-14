@@ -40,9 +40,9 @@
                             if(data.decider == 0)
                             {
                                 if(data.reference == 0)
-                                    $("#suAboneSonuc").html('Abone numaranızı yanlış girdiniz, lütfen xx-xxx-xxxx-xx formatında giriniz.')
+                                    $("#suAboneSonuc").html('<p style="color:red">Abone numaranızı yanlış girdiniz, lütfen xx-xxx-xxxx-xx formatında giriniz.</p> ')
                                 else
-                                    $("#suAboneSonuc").html('Borcunuz bulunmamaktadır, teşekkür ederiz.')
+                                    $("#suAboneSonuc").html('<p style="color:red">Borcunuz bulunmamaktadır, teşekkür ederiz.</p>')
                             }
                             else
                             {
@@ -73,49 +73,50 @@
                                 $.mobile.loading('hide');
                                 $("#suKimlikSonuc").empty();
                                 $("#aboneNoPaneli").empty();
-                                $("#aboneNoPaneli").append( '<p>Kayıtlı abone numaraları:</p><select id="aboneNos"></select><br/><a data-role="button" id="aboneKimlikSorgula" data-theme="a">Sorgula</a>').trigger("create");
+
                                 $("#aboneNos").empty();
                                 $("#suBorcAboneTB").text("");
 
                                 if(data.decider == 0)
                                 {
-                                    $("#suKimlikSonuc").html('Kimlik numaranız bulunamadı, lütfen abone numarası ile arama yapınız.');
+                                    $("#suKimlikSonuc").html('<p style="color:red">Kimlik numaranız bulunamadı, lütfen abone numarası ile arama yapınız.</p>');
 
                                 }
 
                                 else
                                 {
-                                var $option = $("#aboneNos");
+                                    $("#aboneNoPaneli").append( '<p>Kayıtlı abone numaraları:</p><select id="aboneNos"></select><br/><a data-role="button" id="aboneKimlikSorgula" data-theme="a">Sorgula</a>').trigger("create");
+                                    var $option = $("#aboneNos");
 
-                                var s=0;
-                                var increment=0;
+                                    var s=0;
+                                    var increment=0;
 
-                                $.each(data,function(name,value){
-                                    if(data.kisiselMno.MNOnumbers.length > 1)
-                                    {
-                                        $.each(data.kisiselMno.MNOnumbers,function(name,value){
-                                        $option.append($('<option></option>').attr("value", increment).text(value.mnoNumber));
-                                        s++;
-                                        value++;
+                                    $.each(data,function(name,value){
+                                        if(data.kisiselMno.MNOnumbers.length > 1)
+                                        {
+                                            $.each(data.kisiselMno.MNOnumbers,function(name,value){
+                                            $option.append($('<option></option>').attr("value", increment).text(value.mnoNumber));
+                                            s++;
+                                            value++;
 
-                                      });
-                                    }
-                                    else
-                                        $option.append($('<option></option>').attr("value", increment).text(data.kisiselMno.MNOnumbers.mnoNumber));
+                                          });
+                                        }
+                                        else
+                                            $option.append($('<option></option>').attr("value", increment).text(data.kisiselMno.MNOnumbers.mnoNumber));
 
-                                    $('#aboneNos').selectmenu('refresh', true);
+                                        $('#aboneNos').selectmenu('refresh', true);
 
-                                    $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
-                                            '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
-                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
-                                            '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
-                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
-                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
-                                            '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
+                                        $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
+                                                '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
+                                                '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
+                                                '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
+                                                '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
+                                                '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
+                                                '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
 
 
-                                    return false;
-                                });
+                                        return false;
+                                    });
                                 }
                             });
 
@@ -174,7 +175,10 @@
 
                                 if(data.decider == 0)
                                 {
-                                    $("#emlakTgeDiv").html('Borç Yok');
+                                    if(data.reference == 0)
+                                        $("#emlakTgeDiv").html('<p style="color:red">TGE Numaranız bulunamadı, lütfen TGEXXXXXX şeklinde 9 hane olarak giriniz.<p style="color:red">');
+                                    else
+                                        $("#emlakTgeDiv").html('<p style="color:red">Emlak borcunuz bulunmamaktadır, teşekkür ederiz.<p style="color:red">');
 
                                 }
                                 else
@@ -206,8 +210,13 @@
                             $("#emlakTgeDiv").empty();
                             $("#emlakTgeTB").text("");
 
-                            if(data.decider == 0){
-                                $("#emlaKimlikDiv").html('Borç yok');
+                            if(data.decider == 0)
+                            {
+                                if(data.reference == 0)
+                                    $("#emlaKimlikDiv").html('<p style="color:red">Kimlik numaranız bulunamadı, lütfen TGE numaranıza göre arama yapınız.<p style="color:red">');
+                                else
+                                    $("#emlaKimlikDiv").html('<p style="color:red">Emlak borcunuz bulunmamaktadır, teşekkür ederiz.<p style="color:red">');
+
                             }
                             else
                             {

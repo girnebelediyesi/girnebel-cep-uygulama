@@ -18,8 +18,8 @@
 	
 	
     <script type="text/javascript">
-        //$(document).ready(function(){
-            $(document).on("pageinit","#suBorcu", function() {
+        $(document).ready(function(){
+        //    $(document).on("pageinit","#suBorcu", function() {
             var query;
             $('#suAboneSorgu').click(function(event){
 
@@ -37,17 +37,23 @@
                             $("#aboneNoPaneli").empty();
                             $("#suBorcKimlikTB").text("");
 
+                            if(data.decider == 0)
+                            {
+                                $("#suAboneSonuc").html('Borcunuz bulunmamaktadır')
+                            }
+                            else
 
-                            $.each(data,function(i,table){
-                                $("#suAboneSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
-                                        '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
-                                        '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
-                                        '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
-                                        '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
-                                        '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
-                                        '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
-                            });
-
+                            {
+                                $.each(data,function(i,table){
+                                    $("#suAboneSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
+                                            '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
+                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
+                                            '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
+                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
+                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
+                                });
+                            }
 
                         });
             });
@@ -69,6 +75,14 @@
                                 $("#aboneNos").empty();
                                 $("#suBorcAboneTB").text("");
 
+                                if(data.decider == 0)
+                                {
+                                    $("#suKimlikSonuc").html('Borc Yok');
+
+                                }
+
+                                else
+                                {
                                 var $option = $("#aboneNos");
 
                                 var s=0;
@@ -100,7 +114,7 @@
 
                                     return false;
                                 });
-
+                                }
                             });
 
 
@@ -136,9 +150,9 @@
 
                         });
             });
-        });
+        //});
 
-              $(document).on("pageinit","#emlakBorcu", function() {
+              //$(document).on("pageinit","#emlakBorcu", function() {
 
                 $('#emlakTgeSorgu').click(function(event){
 
@@ -156,6 +170,14 @@
                                 $("#emlakKimlikTB").text("");
 
 
+                                if(data.decider == 0)
+                                {
+                                    $("#emlakTgeDiv").html('Borç Yok');
+
+                                }
+                                else
+
+                                {
                                 $.each(data,function(i,table){
                                     $("#emlakTgeDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
                                             '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
@@ -163,7 +185,7 @@
                                             '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
                                 });
 
-
+                            }
                             });
                 });
 
@@ -182,6 +204,11 @@
                             $("#emlakTgeDiv").empty();
                             $("#emlakTgeTB").text("");
 
+                            if(data.decider == 0){
+                                $("#emlaKimlikDiv").html('Borç yok');
+                            }
+                            else
+                            {
                             $.each(data,function(i,table){
                                 $("#emlaKimlikDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
                                         '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
@@ -189,7 +216,7 @@
                                         '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
                             });
 
-
+                            }
                         });
             });
 

@@ -39,10 +39,12 @@
 
                             if(data.decider == 0)
                             {
-                                $("#suAboneSonuc").html('Borcunuz bulunmamaktadır')
+                                if(data.reference == 0)
+                                    $("#suAboneSonuc").html('Abone numaranızı yanlış girdiniz, lütfen xx-xxx-xxxx-xx formatında giriniz.')
+                                else
+                                    $("#suAboneSonuc").html('Borcunuz bulunmamaktadır, teşekkür ederiz.')
                             }
                             else
-
                             {
                                 $.each(data,function(i,table){
                                     $("#suAboneSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
@@ -77,7 +79,7 @@
 
                                 if(data.decider == 0)
                                 {
-                                    $("#suKimlikSonuc").html('Borc Yok');
+                                    $("#suKimlikSonuc").html('Kimlik numaranız bulunamadı, lütfen abone numarası ile arama yapınız.');
 
                                 }
 

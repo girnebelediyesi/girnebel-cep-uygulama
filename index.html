@@ -35,7 +35,7 @@
                             $("#suAboneSonuc").empty();
                             $("#suKimlikSonuc").empty();
                             $("#aboneNoPaneli").empty();
-                            $("#suBorcKimlikTB").text("");
+
 
                             if(data.decider == 0)
                             {
@@ -73,9 +73,9 @@
                                 $.mobile.loading('hide');
                                 $("#suKimlikSonuc").empty();
                                 $("#aboneNoPaneli").empty();
-
+                                $("#suAboneSonuc").empty();
                                 $("#aboneNos").empty();
-                                $("#suBorcAboneTB").text("");
+
 
                                 if(data.decider == 0)
                                 {
@@ -136,8 +136,7 @@
                             $.mobile.loading('hide');
                             $("#suAboneSonuc").empty();
                             $("#suKimlikSonuc").empty();
-                            $("#suBorcAboneTB").text("");
-                            $("#suBorcKimlikTB").text("");
+
 
 
                             $.each(data,function(i,table){
@@ -170,7 +169,7 @@
                                 $.mobile.loading('hide');
                                 $("#emlakTgeDiv").empty();
                                 $("#emlaKimlikDiv").empty();
-                                $("#emlakKimlikTB").text("");
+
 
 
                                 if(data.decider == 0)
@@ -208,7 +207,7 @@
                             $.mobile.loading('hide');
                             $("#emlaKimlikDiv").empty();
                             $("#emlakTgeDiv").empty();
-                            $("#emlakTgeTB").text("");
+
 
                             if(data.decider == 0)
                             {

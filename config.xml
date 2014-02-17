@@ -7,10 +7,10 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Girne Belediyesi Mobile Application</name>
+    <name>Girne Belediyesi Mobil Uyg</name>
 
     <description>
-        An example for phonegap build docs. 
+        Bu uygulama Girne Belediyesi tarafından geliştirilip belediyemizin resmi cep telefonu uygulamasıdır.
     </description>
 
     <author href="http://www.girnebelediyesi.com" email="info@girnebelediyesi.com">

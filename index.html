@@ -6,7 +6,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Girne Cep App</title>
+    <title>GB Mobil</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link rel="stylesheet" href="themes/girneapptheme.min.css" />
@@ -16,8 +16,16 @@
 
     <script type="text/javascript">
 
-    $(document).on("pagebeforecreate",function(){
-        alert("Uygulamamızı kullanmak için aktif internet bağlantınızın bulunması gerekmektedir.");
+    $(document).on('pagebeforecreate', '#anaEkran', function () {
+        setInterval(function () {
+            connectionStatus = window.navigator.onLine? 'online' : 'offline';
+        }, 1);
+        if(connectionStatus == 'offline')
+        {
+            alert('Aktif internet bağlantısı bulunamadı! Uygulamayı kullanmak için aktif internet bağlantınız olmalıdır.');
+            return false;
+        }
+
     });
 
     $(document).on("pageinit","#suBorcu", function() {

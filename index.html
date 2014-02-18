@@ -16,19 +16,18 @@
 
     <script type="text/javascript">
 
-    $(document).on('pagebeforecreate', '#anaEkran', function () {
-        setInterval(function () {
-            connectionStatus = window.navigator.onLine? 'online' : 'offline';
-        }, 1);
-        if(connectionStatus == 'offline')
-        {
-            alert('Aktif internet bağlantısı bulunamadı! Uygulamayı kullanmak için aktif internet bağlantınız olmalıdır.');
-            return false;
-        }
+        var decider = 0;
+        $(document).on('pagecreate', function () {
 
-    });
+            if(decider ==0)
+            {
+                alert('Bu uygulama aktif internet bağlantısı gerektirmektedir.');
+                decider = 1;
+            }
 
-    $(document).on("pageinit","#suBorcu", function() {
+        });
+
+        $(document).on("pageinit","#suBorcu", function() {
             var query;
             $('#suAboneSorgu').click(function(event){
 
@@ -69,68 +68,68 @@
                         });
             });
 
-                $('#suKimlikSorgu').click(function(event){
+            $('#suKimlikSorgu').click(function(event){
 
 
-                    $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
+                $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
 
-                    query=$("#suKimlikTB").val();
+                query=$("#suKimlikTB").val();
 
-                    $.getJSON('http://91.151.82.135:88/webConsumer.php?suKimlikTB='+query+"&callback=?")
-                            .done(function( data ) {
+                $.getJSON('http://91.151.82.135:88/webConsumer.php?suKimlikTB='+query+"&callback=?")
+                        .done(function( data ) {
 
-                                $.mobile.loading('hide');
-                                $("#suKimlikSonuc").empty();
-                                $("#aboneNoPaneli").empty();
-                                $("#suAboneSonuc").empty();
-                                $("#aboneNos").empty();
+                            $.mobile.loading('hide');
+                            $("#suKimlikSonuc").empty();
+                            $("#aboneNoPaneli").empty();
+                            $("#suAboneSonuc").empty();
+                            $("#aboneNos").empty();
 
 
-                                if(data.decider == 0)
-                                {
-                                    $("#suKimlikSonuc").html('<p style="color:red">Kimlik numaranız bulunamadı, lütfen abone numarası ile arama yapınız.</p>');
+                            if(data.decider == 0)
+                            {
+                                $("#suKimlikSonuc").html('<p style="color:red">Kimlik numaranız bulunamadı, lütfen abone numarası ile arama yapınız.</p>');
 
-                                }
+                            }
 
-                                else
-                                {
-                                    $("#aboneNoPaneli").append( '<p>Kayıtlı abone numaraları:</p><select id="aboneNos"></select><br/><a data-role="button" id="aboneKimlikSorgula" data-theme="a">Sorgula</a>').trigger("create");
-                                    var $option = $("#aboneNos");
+                            else
+                            {
+                                $("#aboneNoPaneli").append( '<p>Kayıtlı abone numaraları:</p><select id="aboneNos"></select><br/><a data-role="button" id="aboneKimlikSorgula" data-theme="a">Sorgula</a>').trigger("create");
+                                var $option = $("#aboneNos");
 
-                                    var s=0;
-                                    var increment=0;
+                                var s=0;
+                                var increment=0;
 
-                                    $.each(data,function(name,value){
-                                        if(data.kisiselMno.MNOnumbers.length > 1)
-                                        {
-                                            $.each(data.kisiselMno.MNOnumbers,function(name,value){
+                                $.each(data,function(name,value){
+                                    if(data.kisiselMno.MNOnumbers.length > 1)
+                                    {
+                                        $.each(data.kisiselMno.MNOnumbers,function(name,value){
                                             $option.append($('<option></option>').attr("value", increment).text(value.mnoNumber));
                                             s++;
                                             value++;
 
-                                          });
-                                        }
-                                        else
-                                            $option.append($('<option></option>').attr("value", increment).text(data.kisiselMno.MNOnumbers.mnoNumber));
+                                        });
+                                    }
+                                    else
+                                        $option.append($('<option></option>').attr("value", increment).text(data.kisiselMno.MNOnumbers.mnoNumber));
 
-                                        $('#aboneNos').selectmenu('refresh', true);
+                                    $('#aboneNos').selectmenu('refresh', true);
 
-                                        $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
-                                                '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
-                                                '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
-                                                '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
-                                                '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
-                                                '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
-                                                '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
-
-
-                                        return false;
-                                    });
-                                }
-                            });
+                                    $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
+                                            '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
+                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
+                                            '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
+                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
+                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
 
 
-                });
+                                    return false;
+                                });
+                            }
+                        });
+
+
+            });
 
             $(document).on('click','#aboneKimlikSorgula', function()
             {
@@ -163,35 +162,35 @@
             });
         });
 
-              $(document).on("pageinit","#emlakBorcu", function() {
+        $(document).on("pageinit","#emlakBorcu", function() {
 
-                $('#emlakTgeSorgu').click(function(event){
+            $('#emlakTgeSorgu').click(function(event){
 
-                    $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
+                $.mobile.loading('show', {theme:"a", text:"Lütfen Bekleyin...", textVisible: true});
 
-                    query=$("#emlakTgeTB").val();
+                query=$("#emlakTgeTB").val();
 
-                    $.getJSON('http://91.151.82.135:88/webConsumer.php?emlakTgeTB='+query+'&callback=?')
-                            .done(function( data ) {
-                                //alert("clicked");
+                $.getJSON('http://91.151.82.135:88/webConsumer.php?emlakTgeTB='+query+'&callback=?')
+                        .done(function( data ) {
+                            //alert("clicked");
 
-                                $.mobile.loading('hide');
-                                $("#emlakTgeDiv").empty();
-                                $("#emlaKimlikDiv").empty();
+                            $.mobile.loading('hide');
+                            $("#emlakTgeDiv").empty();
+                            $("#emlaKimlikDiv").empty();
 
 
 
-                                if(data.decider == 0)
-                                {
-                                    if(data.reference == 0)
-                                        $("#emlakTgeDiv").html('<p style="color:red">TGE Numaranız bulunamadı, lütfen TGEXXXXXX şeklinde 9 hane olarak giriniz.<p style="color:red">');
-                                    else
-                                        $("#emlakTgeDiv").html('<p style="color:red">Emlak borcunuz bulunmamaktadır, teşekkür ederiz.<p style="color:red">');
-
-                                }
+                            if(data.decider == 0)
+                            {
+                                if(data.reference == 0)
+                                    $("#emlakTgeDiv").html('<p style="color:red">TGE Numaranız bulunamadı, lütfen TGEXXXXXX şeklinde 9 hane olarak giriniz.<p style="color:red">');
                                 else
+                                    $("#emlakTgeDiv").html('<p style="color:red">Emlak borcunuz bulunmamaktadır, teşekkür ederiz.<p style="color:red">');
 
-                                {
+                            }
+                            else
+
+                            {
                                 $.each(data,function(i,table){
                                     $("#emlakTgeDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
                                             '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
@@ -200,8 +199,8 @@
                                 });
 
                             }
-                            });
-                });
+                        });
+            });
 
             $('#emlakKimlikSorgu').click(function(event){
 
@@ -228,18 +227,24 @@
                             }
                             else
                             {
-                            $.each(data,function(i,table){
-                                $("#emlaKimlikDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
-                                        '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
-                                        '<tr><td>Cari Dönem:</td><td>'+data.cariDonem+'</td></tr>' +
-                                        '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
-                            });
+                                $.each(data,function(i,table){
+                                    $("#emlaKimlikDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
+                                            '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
+                                            '<tr><td>Cari Dönem:</td><td>'+data.cariDonem+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
+                                });
 
                             }
                         });
             });
 
         });
+
+
+
+
+
+
 
 
     </script>

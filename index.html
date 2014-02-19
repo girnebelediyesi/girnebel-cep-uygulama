@@ -16,12 +16,22 @@
 
     <script type="text/javascript">
 
+    document.addEventListener("backbutton", function(e){
+        if($.mobile.activePage.is('#anaEkran')){
+            e.preventDefault();
+            navigator.app.exitApp();
+        }
+        else {
+            navigator.app.backHistory()
+        }
+    }, false);
+
         var decider = 0;
-        $(document).on('pagecreate', function () {
+        $(document).on("pagebeforeshow","#borcSorgulama",function(){
 
             if(decider ==0)
             {
-                alert('Bu uygulama aktif internet bağlantısı gerektirmektedir.');
+                alert('Borç sorgulama aktif internet bağlantısı gerektirmektedir.');
                 decider = 1;
             }
 
@@ -258,10 +268,13 @@
     <div data-role="content">
         <img id="logo" src="images/Logo_last.png" width="100" height="100" style="display: block; margin: 0 auto">
         <a data-role="button" data-transition="flip" href="#borcSorgulama" data-theme="a">Borç Sorgulama</a>
+        <a data-role="button" data-transition="flip" href="#baskanMsg" data-theme="a">Başkanın Mesajı</a>
+        <a data-role="button" data-transition="flip" href="#projeler" data-theme="a">Projeler</a>
         <a data-role="button" href="http://213.142.146.66/girne/" data-transition="flip" data-theme="a">Online İmar Rehberi</a>
     </div>
     <div data-role="footer">
-        <h1></h1>
+      <p style="font-size: 10px">Bu uygulama Girne Belediyesi tarafından geliştirilmiştir.</p>
+      <p style="font-size: 10px">© Girne Belediyesi</p>
     </div>
 </div>
 <div data-role="page" id="borcSorgulama" data-theme="b">
@@ -276,6 +289,95 @@
         <a data-role="button" data-transition="turn" href="#anaEkran" data-theme="a">Geri</a>
     </div>
 </div>
+
+<div data-role="page" id="baskanMsg" data-theme="b">
+    <div data-role="header">
+        <h1>Başkanın Mesajı</h1>
+    </div>
+    <div data-role="content">
+
+        <div style="text-align: center;"> <img src="images/sumeraygin.jpg" alt="baskan"></div><br/>
+
+        Girne hızla gelişiyor. Belediyemiz bu hızlı gelişmeye ayak uydurmaya çalışıyor. Bir yanda günlük olağan işleri aksatmadan yürütmeye çalışırken, diğer yandan Girne’nin geleceğine yatırım yapıyoruz. Bu gelişme süreci içinde özellikle günlük hizmetlerimizde aksamalar olduğunu üzülerek gözlemliyoruz. Bütün zorluklarına karşın, sıcak yaz günlerinde kentimizi susuz bırakmamayı başardık ama çöp toplama sistemimizin yeterince etkin olamadığını da gözlemledik.
+
+        Kentimizde yaşadığımız başlıca sorunlar, beklenmedik genişlemeden kaynaklanıyor ve bu sorunların üstesinden gelebilmek için daha büyük yatırımlara ve belediyemizin yeniden organize edilebilmesi için zamanı iyi kullanmaya ihtiyaç vardır. Bu arada, oldukça önemli bir hususun da altını çizmemiz gerekiyor. Bir kent, kentlileri ile bir bütündür. O kentteki yaşam tarzını belirleyen, kent yönetiminden çok kentlilerin kendisidir. Kentlilerin davranışları ve yaşam tarzları, kent yönetiminin işini kolaylaştırır veya zorlaştırır. Ne yazık ki Girne’de yaşayan sadece Girneliler değildir. Girne, Kuzey Kıbrıs’ın dışardan en fazla insan çeken kentidir. Kendi nüfusumuzdan daha çok insan Girne kentinde yaşamakta ve olanaklarını kullanmaktadır. Girne’de yaşayan veya Girne’yi ziyaret eden turistler belli davranış biçimlerini gösterebilseler bile, Girne’deki hızlı yapılaşmanın sonucu olarak inşaatlarda veya yaşamak için gerekli olanakları bulunmayan pansiyonlarda yaşattığımız işçiler, Girne’nin başlıca sorununu oluşturuyor. Onların yarattığı sorunlar, ne yazık ki belediyemizin önemli bir gücünün ve kaynağının heba olmasına neden oluyor. Onların yarattığı sorunlar, kentlilik bilincimizin erozyona uğramasına ve Girnelilerin davranış şekillerinin de değişmesine neden oluyor. Bu değişime örnek olarak hepimizin şikayetçi olduğu çöp toplama sorunumuzu gösterebiliriz. Kıbrıslı Türkler, uzun yıllardan beri, çöplerini evlerinde biriktirme ve toplama saatine yakın saatlerde çöp kamyonlarının güzergahı üzerine çıkarma alışkanlığını başarıyla uygulamış ve çöp biriktirme ve toplama konusunda sorun yaşamamıştırlar. Ne var ki, son yıllarda, çöplerin konutlarda değil, yol kenarlarında veya boş arsalarda biriktirildiğine tanık olmaya başladık. Çöp birikiminin daha sağlıklı yapılması için kullanıma koyduğumuz konteynerlerin kendileri bile neredeyse bir sorun haline geldi. Bu sadece bir örnektir... İnşaat artıklarının boş arsalarda biriktirilmesi, bahçelerden çıkan çöplerin yol kenarlarına gelişi-güzel yığılması gibi örneklerle bu yelpazeyi geliştirebiliriz. Belediyemiz, bütün bu sorunlarla başa çıkabilmek için mücadele etmektedir. Etmeye de devam edecektir. Görevimiz budur. Ne var ki, birimizin yaptığını bir diğerimiz bozarsa, kentimizin gelişmesi ve güzelleşmesi için harcayabileceğimiz kaynakları boşuna harcamak, belediye çalışanlarımızdan yeterince yararlanamamak sorunu ile de karşı karşıyayız demektir. Bu dertten kurtulmak, daha kalıcı işler yapabilmek ancak ve ancak yurttaşlarımızın kent sorunlarına sahip çıkması, diğer bir söyleyişle kent bilincinin gelişmesi ile mümkündür.
+
+        Belediyenin bugünkü yönetimi veya çalışanları bugün için vardırlar. Oysa yerleşik bir kentlilik bilinci ve ortak davranış şekilleri, onlardan çok daha uzun süre yaşama potansiyeline sahiptir. Girnemizi kurtaracak olan da belediyemizin çalışmalarından çok Girnelilik kültürünün gelişmesi olacaktır. Kenttaşlık bilinci geliştikçe yaşadığımız kentin gerçek sahibi olduğumuzu da hissedeceğiz.<br/><br/>
+
+        Sümer AYGIN<br/>
+        Girne Belediye Başkanı
+
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#anaEkran" data-theme="a">Geri</a>
+    </div>
+</div>
+
+<div data-role="page" id="projeler" data-theme="b">
+    <div data-role="header">
+        <h1>Projeler</h1>
+    </div>
+    <div data-role="content">
+        <a data-role="button" data-transition="flip" href="#hizmet" data-theme="a">Hizmet Binası</a>
+        <a data-role="button" data-transition="flip" href="#karakız" data-theme="a">Karakız Rekreasyon</a>
+        <a data-role="button" data-transition="flip" href="#sporyesil" data-theme="a">Spor ve Yeşil Alan</a>
+        <a data-role="button" data-transition="flip" href="#pazar" data-theme="a">Açık Pazar</a>
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#anaEkran" data-theme="a">Geri</a>
+    </div>
+</div>
+
+<div data-role="page" id="hizmet" data-theme="b">
+    <div data-role="header">
+        <h1>Hizmet Binası</h1>
+    </div>
+    <div data-role="content">
+        <div style="text-align: center;"> <img src="images/Hizmet_Binasi_tmb.jpg" alt="hizmet_binasi"></div><br/>
+        8450 m2 olacak binamız, yeşil bina özelliği taşımaktadır. Tasarımımız temiz enerji kaynaklarını kullanacak şekilde tasarlanmıştır. Binamızda Girne Belediyesinin tüm birimlerini aynı çatı altına toplamaktadır aynı zamanda yaklaşık 400 kişilik çok amaçlı salonumuz vardır. Fuaye alanları çok amaçlı küçüklü büyüklü sergi alanarımız bulunmaktadır. iç bahçemiz projemizin kalbi görevi görüp hem gün ışığından yararlanmamızı sağlamakta aynı zamanda çalışanlarımızın ve ziyaretçilerimiz sosyalleşeceği açık alanlar sağlamaktadır. Projemizin devamı olan yeşil alanımız 2 ana caddeyi birbirine bağlamaktadır. Bu yeşil alanımızda yürüyüş yolları parklar ve oturma grupları bulunmaktadır.
+
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#projeler" data-theme="a">Geri</a>
+    </div>
+</div>
+<div data-role="page" id="karakız" data-theme="b">
+    <div data-role="header">
+        <h1>Karakız Rekreasyon</h1>
+    </div>
+    <div data-role="content">
+        <div style="text-align: center;"> <img src="images/Karakiz_tmb.jpg" alt="karakiz"></div><br/>
+        Girne Kordonboyu ile Amfitiyatro arasindaki yaya baglantisini bütünleştirecek bir proje olarak tasarlanan bu proje, Girne Kalesi güney dogu köşesinden başlayip, Deniz Şehitliği’nin güney batı köşesi ve oradan’da amfitiyatroya bir rekreasyon, yürüyüş, seyir ve erozyon kontrol projesi olarak devem etmektedir. Ayrica Girne Limani ile Amfi Tiyatro arasindaki Kanalizasyon baglantısının’da bu proje kapsaminda yapiliyor.1. Etap çalışmalarının tamamlanmasının ardından, projenin 2. Etap’ı olan Girne Kale arkasındaki yürüyüş alanları, eğlence mekanları,cafeler,resturantlar, plaj, rıhtım, oto park ve seyir terasları gibi alanların yapımı ve peyzaj düzenlemesi yapilacaktır.
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#projeler" data-theme="a">Geri</a>
+    </div>
+</div>
+<div data-role="page" id="sporyesil" data-theme="b">
+    <div data-role="header">
+        <h1>Spor ve Yeşil Alan</h1>
+    </div>
+    <div data-role="content">
+        <div style="text-align: center;"> <img src="images/sporyesiltmb.jpg" alt="sporyesilalan"></div><br/>
+        Bu projede birçok spor aktivitesinin yanı sıra Girne halkına ilk etap olarak dünya standartlarında dört adet tenis kortu kazandırılması hedefleniyor. Yapımı süratle devam emekte olan kortların kisa bir sure içerisinde tamamlanıp Tenis kulübünün hizmetine verilecektir. Tenis kortlarinin yani sira 1km lik yuruyus parkuru, cafeler, seyir alanlari, su sporlari, dere ve cevre duzenlenmesi ile de halkimiza hizmet verecektir.
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#projeler" data-theme="a">Geri</a>
+    </div>
+</div>
+<div data-role="page" id="pazar" data-theme="b">
+    <div data-role="header">
+        <h1>Açık Pazar</h1>
+    </div>
+    <div data-role="content">
+        <div style="text-align: center;"> <img src="images/Acik_pazar_tmb.jpg" alt="acikpazar"></div><br/>
+        Belediyemiz, süregelen değerlerimizi yaşatmak ve halka hizmet vermek için yıllardır her çarşamba Açık Pazar Yeri kurulmasına öncülük etmekte ve desteklemektedir. Mevcut durum ne yazık ki gelişmekte olan turistik Girne kentine uygun değildir. Özellikle Açık Pazar’ın kurulduğu alanın çevresi ve yine yıllar önce Belediyemiz tarafından yapılan örtü sistemi zaman içerinde yıpranmış, bozulmuş, kullanılmaz hale gelmiştir. Hem halkımızın hem de turistlerin çok büyük ilgi gösterdiği bu alana kapali bir örtü sistemi, çevre düzenleme ve otopark projesi belediyemiz tarafindan geliştirilmiştir.
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#projeler" data-theme="a">Geri</a>
+    </div>
+</div>
+
 <div data-role="page" id="emlakBorcu" data-theme="a">
     <div data-role="header">
         <h1>Emlak Borcu</h1>

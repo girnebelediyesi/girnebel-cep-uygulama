@@ -16,16 +16,6 @@
 
     <script type="text/javascript">
 
-    document.addEventListener("backbutton", function(e){
-        if($.mobile.activePage.is('#anaEkran')){
-            e.preventDefault();
-            navigator.app.exitApp();
-        }
-        else {
-            navigator.app.backHistory()
-        }
-    }, false);
-
         var decider = 0;
         $(document).on("pagebeforeshow","#borcSorgulama",function(){
 

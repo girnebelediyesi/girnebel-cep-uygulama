@@ -55,13 +55,15 @@
                             else
                             {
                                 $.each(data,function(i,table){
-                                    $("#suAboneSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
-                                            '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
-                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
-                                            '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
-                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
-                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
-                                            '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
+                                    $("#suAboneSonuc").html('<table><tr><td>Su:</td><td>'+parseFloat(data.su).toFixed(2)+'</td>' +
+                                            '<tr><td>Temizlik:</td><td>'+parseFloat(data.su).toFixed(2) +'</td></tr>' +
+                                            '<tr><td>Aydınlatma:</td><td>'+parseFloat(data.ayd).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Sağlık:</td><td>'+parseFloat(data.saglik).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Kanalizasyon:</td><td>'+parseFloat(data.kanal).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Ek Hizmetler:</td><td>'+parseFloat(data.genelBorc).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+parseFloat(data.total).toFixed(2)+'</td></tr></table>');
+
+
                                 });
                             }
 
@@ -114,13 +116,13 @@
 
                                     $('#aboneNos').selectmenu('refresh', true);
 
-                                    $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
-                                            '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
-                                            '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
-                                            '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
-                                            '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
-                                            '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
-                                            '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
+                                    $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+parseFloat(data.su).toFixed(2)+'</td>' +
+                                            '<tr><td>Temizlik:</td><td>'+parseFloat(data.su).toFixed(2) +'</td></tr>' +
+                                            '<tr><td>Aydınlatma:</td><td>'+parseFloat(data.ayd).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Sağlık:</td><td>'+parseFloat(data.saglik).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Kanalizasyon:</td><td>'+parseFloat(data.kanal).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Ek Hizmetler:</td><td>'+parseFloat(data.genelBorc).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+parseFloat(data.total).toFixed(2)+'</td></tr></table>');
 
 
                                     return false;
@@ -148,13 +150,13 @@
 
 
                             $.each(data,function(i,table){
-                                $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+data.su+'</td>' +
-                                        '<tr><td>Temizlik:</td><td>'+data.cop+'</td></tr>' +
-                                        '<tr><td>Aydınlatma:</td><td>'+data.ayd+'</td></tr>' +
-                                        '<tr><td>Sağlık:</td><td>'+data.saglik+'</td></tr>' +
-                                        '<tr><td>Kanalizasyon:</td><td>'+data.kanal+'</td></tr>' +
-                                        '<tr><td>Ek Hizmetler:</td><td>'+data.genelBorc+'</td></tr>' +
-                                        '<tr><td>Toplam:</td><td>'+data.total+'</td></tr></table>');
+                                $("#suKimlikSonuc").html('<table><tr><td>Su:</td><td>'+parseFloat(data.su).toFixed(2)+'</td>' +
+                                        '<tr><td>Temizlik:</td><td>'+parseFloat(data.su).toFixed(2) +'</td></tr>' +
+                                        '<tr><td>Aydınlatma:</td><td>'+parseFloat(data.ayd).toFixed(2)+'</td></tr>' +
+                                        '<tr><td>Sağlık:</td><td>'+parseFloat(data.saglik).toFixed(2)+'</td></tr>' +
+                                        '<tr><td>Kanalizasyon:</td><td>'+parseFloat(data.kanal).toFixed(2)+'</td></tr>' +
+                                        '<tr><td>Ek Hizmetler:</td><td>'+parseFloat(data.genelBorc).toFixed(2)+'</td></tr>' +
+                                        '<tr><td>Toplam:</td><td>'+parseFloat(data.total).toFixed(2)+'</td></tr></table>');
                             });
 
 
@@ -192,10 +194,10 @@
 
                             {
                                 $.each(data,function(i,table){
-                                    $("#emlakTgeDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
-                                            '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
-                                            '<tr><td>Cari Dönem:</td><td>'+data.cariDonem+'</td></tr>' +
-                                            '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
+                                    $("#emlakTgeDiv").html('<table><tr><td>Bakiye:</td><td>'+parseFloat(data.bakiye).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Gecikme Zammı:</td><td>'+parseFloat(data.bakiyeCezaKalan).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Cari Dönem:</td><td>'+parseFloat(data.cariDonem).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+parseFloat(data.bakiye+data.bakiyeCezaKalan+data.cariDonem).toFixed(2)+'</td></tr></table>');
                                 });
 
                             }
@@ -228,10 +230,10 @@
                             else
                             {
                                 $.each(data,function(i,table){
-                                    $("#emlaKimlikDiv").html('<table><tr><td>Bakiye:</td><td>'+data.bakiye+'</td></tr>' +
-                                            '<tr><td>Gecikme Zammı:</td><td>'+data.bakiyeCezaKalan+'</td></tr>' +
-                                            '<tr><td>Cari Dönem:</td><td>'+data.cariDonem+'</td></tr>' +
-                                            '<tr><td>Toplam:</td><td>'+(data.bakiye+data.bakiyeCezaKalan+data.cariDonem)+'</td></tr></table>');
+                                    $("#emlaKimlikDiv").html('<table><tr><td>Bakiye:</td><td>'+parseFloat(data.bakiye).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Gecikme Zammı:</td><td>'+parseFloat(data.bakiyeCezaKalan).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Cari Dönem:</td><td>'+parseFloat(data.cariDonem).toFixed(2)+'</td></tr>' +
+                                            '<tr><td>Toplam:</td><td>'+parseFloat(data.bakiye+data.bakiyeCezaKalan+data.cariDonem).toFixed(2)+'</td></tr></table>');
                                 });
 
                             }

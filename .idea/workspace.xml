@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74ac94d8-f89f-4fe0-8966-9dba9d6717c4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/drawable-hdpi/Logo_72.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/drawable-ldpi/Logo_72.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/drawable-mdpi/Logo_72.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/drawable-xhdpi/Logo_72.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -38,7 +42,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="772" selection-end="772" vertical-scroll-proportion="0.6642984" vertical-offset="0" max-vertical-offset="563">
+            <state line="20" column="26" selection-start="638" selection-end="638" vertical-scroll-proportion="0.60390764" vertical-offset="0" max-vertical-offset="595">
               <folding />
             </state>
           </provider>
@@ -132,20 +136,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="girnebel-cep-uygulama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GirneMobileApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="girnebel-cep-uygulama" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -372,7 +362,11 @@
       <created>1395049827213</created>
       <updated>1395049827213</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Completed Version 2.8">
+      <created>1395050342756</created>
+      <updated>1395050342756</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -432,7 +426,8 @@
     <MESSAGE value="Completed Version 2.5" />
     <MESSAGE value="Completed Version 2.6" />
     <MESSAGE value="Completed Version 2.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed Version 2.7" />
+    <MESSAGE value="Completed Version 2.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed Version 2.8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -533,7 +528,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="772" selection-end="772" vertical-scroll-proportion="0.6642984" vertical-offset="0" max-vertical-offset="563">
+        <state line="20" column="26" selection-start="638" selection-end="638" vertical-scroll-proportion="0.60390764" vertical-offset="0" max-vertical-offset="595">
           <folding />
         </state>
       </provider>

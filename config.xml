@@ -21,4 +21,9 @@
     <icon src="images/Logo_57.png" gap:platform="ios" width="57" height="57" />
     <icon src="images/Logo_72.png" gap:platform="ios" width="72" height="72" />
 
+    <icon src="images/drawable-ldpi/Logo_72.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="images/drawable-mdpi/Logo_72.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="images/drawable-hdpi/Logo_72.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="images/drawable-xhdpi/Logo_72.png" gap:platform="android" gap:density="xhdpi" />
+
 </widget>

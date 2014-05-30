@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <?php
 header('Access-Control-Allow-Origin: *');
 function obj2array($obj) {

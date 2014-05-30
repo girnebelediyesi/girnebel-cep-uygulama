@@ -11,6 +11,8 @@
 	
 	<link rel="stylesheet" href="themes/girneapptheme.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
+
+
 	<script src="lib/jquery-1.11.0.min.js"></script>
 	<script src="lib/jquery.mobile-1.4.0.min.js"></script>
 
@@ -242,6 +244,38 @@
 
         });
 
+        $(document).on("pageinit","#festivalProgram", function() {
+            $("a").click(function(){
+                switch (this.id){
+                    case "1":
+                        $("#icerik").html("<table>" +
+                                "<tr><td style='color:#008cea'>Etkinlik:</td><td></td></tr>" +
+                                "<tr><td>Yer:</td><td></td></tr>" +
+                                "<tr><td>Saat:</td><td></td></tr>" +
+                                "</table>");
+                        break;
+                    case "3":
+
+                        break;
+                    case "4":
+
+                        break;
+                    case "5":
+
+                        break;
+                    case "6":
+
+                        break;
+                    case "7":
+
+                        break;
+                }
+
+
+            });
+
+        });
+
 
 
 
@@ -250,6 +284,34 @@
 
 
     </script>
+<style type="text/css">
+    table {
+        color: black;
+        background: #fff;
+        border: 1px solid #b4b4b4;
+        font: bold 17px helvetica;
+        padding: 0;
+        margin-top:10px;
+        width: 100%;
+        -webkit-border-radius: 8px;
+    }
+
+    table tr td {
+        color: #666;
+        border-bottom: 1px solid #b4b4b4;
+        border-right: 1px solid #b4b4b4;
+        padding: 10px 10px 10px 10px;
+        background-image: -webkit-linear-gradient(top, #fdfdfd, #eee);
+    }
+
+    table tr td:last-child {
+        border-right: none;
+    }
+
+    table tr:last-child td {
+        border-bottom: none;
+    }
+</style>
 </head>
 
 <body>
@@ -259,6 +321,7 @@
     </div>
     <div data-role="content">
         <img id="logo" src="images/Logo_last.png" width="100" height="100" style="display: block; margin: 0 auto">
+        <a data-role="button" data-transition="flip" href="#festival" data-theme="a">Kültür Sanat Festivali</a>
         <a data-role="button" data-transition="flip" href="#borcSorgulama" data-theme="a">Borç Sorgulama</a>
         <a data-role="button" data-transition="flip" href="#baskanMsg" data-theme="a">Başkanın Mesajı</a>
         <a data-role="button" data-transition="flip" href="#projeler" data-theme="a">Projeler</a>
@@ -269,6 +332,71 @@
       <p style="font-size: 10px">© Girne Belediyesi</p>
     </div>
 </div>
+
+<div data-role="page" id="festival" data-theme="b">
+    <div data-role="header">
+        <h1>Kültür Sanat Festivali</h1>
+    </div>
+    <div data-role="content">
+        <a data-role="button" data-transition="flip" href="#festivalBilgi" data-theme="a">Festival Hakkında Bilgi</a>
+        <a data-role="button" data-transition="flip" href="#festivalVideo" data-theme="a">Tanıtım Videosu</a>
+        <a data-role="button" data-transition="flip" href="#festivalProgram" data-theme="a">Festival Programı</a>
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#anaEkran" data-theme="a">Geri</a>
+    </div>
+</div>
+
+<div data-role="page" id="festivalBilgi" data-theme="b">
+    <div data-role="header">
+        <h1>Festival Hakkında Bilgi</h1>
+    </div>
+    <div data-role="content">
+
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#festival" data-theme="a">Geri</a>
+    </div>
+</div>
+
+<div data-role="page" id="festivalVideo" data-theme="b">
+    <div data-role="header">
+        <h1>Festival Tanıtım Videosu</h1>
+    </div>
+    <div data-role="content">
+
+    </div>
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#festival" data-theme="a">Geri</a>
+    </div>
+</div>
+
+<div data-role="page" id="festivalProgram" data-theme="b">
+    <div data-role="header">
+        <h1>Festival Programı</h1>
+    </div>
+    <div data-role="content">
+        <table class="ui-responsive">
+            <tr><td style="background: #008cea;color:white;" >Pt</td><td style="background: #008cea;color:white;" >Sa</td><td style="background: #008cea;color:white;" >Ça</td><td style="background: #008cea;color:white;" >Pe</td><td style="background: #008cea;color:white;" >Cu</td><td style="background: #008cea;color:white;" >Ct</td><td style="background: #008cea;color:white;">Pa</td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td style="background: khaki"><a href="#festivalDetay"  id="1" data-rel="popup" data-transition="pop">1</a> </td> </tr>
+            <tr><td>2</td><td style="background: khaki"><a href="#" id="3">3</a></td><td style="background: khaki"><a href="#" id="4">4</a></td><td style="background: khaki"><a href="#" id="5">5</a></td><td style="background: khaki"><a href="#" id="6">6</a></td><td style="background: khaki"><a href="#" id="7" data-rel="dialog">7</a></td><td><a href="#" id="8">8</a></td></tr>
+            <tr><td style="background: khaki"><a href="#" id="9"> 9</a></td><td style="background: khaki"><a href="#" id="10">10</a></td><td style="background: khaki"><a href="#" id="11">11</a></td><td style="background: khaki"><a href="#" id="12">12</a></td><td style="background: khaki"><a href="#" id="13">13</a></td><td style="background: khaki"><a href="#" id="14">14</a></td><td style="background: khaki"><a href="#" id="15">15</a></td></tr>
+            <tr><td>16</td><td style="background: khaki"><a href="#" id="17">17</a></td><td style="background: khaki"><a href="#" id="18">18</a></td><td style="background: khaki"><a href="#" id="19">19</a></td><td style="background: khaki"><a href="#" id="20">20</a></td><td style="background: khaki"><a href="#" id="21">21</a></td><td style="background: khaki"><a href="#" id="22">22</a></td></tr>
+            <tr><td>23</td><td style="background: khaki"><a href="#" id="24">24</a></td><td style="background: khaki"><a href="#" id="25">25</a></td><td style="background: khaki"><a href="#" id="26">26</a></td><td style="background: khaki"><a href="#" id=27>27</a></td><td>28</td><td>29</td></tr>
+            <tr><td>30</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+    </div>
+    <div id="festivalDetay" data-role="popup">
+        <div id="icerik"></div>
+    </div>
+
+    <div data-role="footer">
+        <a data-role="button" data-transition="turn" href="#festival" data-theme="a">Geri</a>
+    </div>
+</div>
+
+
+
 <div data-role="page" id="borcSorgulama" data-theme="b">
     <div data-role="header">
         <h1>Borç Sorgulama</h1>

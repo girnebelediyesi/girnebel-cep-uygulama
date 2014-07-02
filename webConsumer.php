@@ -1,6 +1,10 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</html>
 <?php
 header('Access-Control-Allow-Origin: *');
+header("Content-Type: text/plain");
+
 function obj2array($obj) {
     $out = array();
     foreach ($obj as $key => $val) {

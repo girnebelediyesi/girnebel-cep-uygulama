@@ -1,8 +1,13 @@
 
-html, body, #map-canvas, #adresRehberiDetay {
+html, body, #adresRehberiDetay {
     height: 100%;
     margin: 0px;
     padding: 0px
+}
+
+#map-canvas
+{
+    height: 80%;
 }
 
 

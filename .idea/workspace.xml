@@ -52,7 +52,7 @@
       <file leaf-file-name="css.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="17" selection-start="149" selection-end="149" vertical-scroll-proportion="0.36115327" vertical-offset="0" max-vertical-offset="748">
+            <state line="9" column="14" selection-start="117" selection-end="117" vertical-scroll-proportion="0.23216996" vertical-offset="0" max-vertical-offset="748">
               <folding />
             </state>
           </provider>
@@ -424,7 +424,15 @@
       <created>1409295744084</created>
       <updated>1409295744085</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="POI eklendi">
+      <created>1409296380856</created>
+      <updated>1409296380857</updated>
+    </task>
+    <task id="LOCAL-00054" summary="POI eklendi">
+      <created>1409296594841</created>
+      <updated>1409296594841</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -438,7 +446,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15766424" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2585895" sideWeight="0.670073" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2585895" sideWeight="0.670073" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -603,7 +611,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="149" selection-end="149" vertical-scroll-proportion="0.36115327" vertical-offset="0" max-vertical-offset="748">
+        <state line="9" column="14" selection-start="117" selection-end="117" vertical-scroll-proportion="0.23216996" vertical-offset="0" max-vertical-offset="748">
           <folding />
         </state>
       </provider>

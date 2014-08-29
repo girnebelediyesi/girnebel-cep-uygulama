@@ -13,15 +13,15 @@ $bUnique = isset($_GET['bUnique']) ? $_GET['bUnique'] : '';
 //
 
 if($type_tr && $name){
-	$sql = "SELECT * FROM poi where Type_tr = '$type_tr' AND Name = '$name'";
+	$sql = "SELECT * FROM poi where Type_tr = '$type_tr' AND Name = '$name' order by Name asc";
 }else if ($type_tr) {
 	if($bUnique)
-		$sql = "SELECT DISTINCT Name FROM poi where Type_tr = '$type_tr'";
+		$sql = "SELECT DISTINCT Name FROM poi where Type_tr = '$type_tr' order by Name asc";
 	else
-		$sql = "SELECT * FROM poi where Type_tr = '$type_tr'";
+		$sql = "SELECT * FROM poi where Type_tr = '$type_tr' order by Type_tr asc";
 }else {
 	if($bUnique)
-		$sql = "SELECT DISTINCT Type_tr FROM poi";
+		$sql = "SELECT DISTINCT Type_tr FROM poi order by Type_tr";
 	else
 		$sql = "SELECT * FROM poi";
 }
